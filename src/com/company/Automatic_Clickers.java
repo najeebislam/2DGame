@@ -7,14 +7,18 @@ public class Automatic_Clickers {
     public int Amount_owned;
     public int BaseCost;
     public int Rate_Of_Increase_to_cost;
+    public int Level;
+    public int CurrentCost;
 
-    public Automatic_Clickers(String name, int currency_per_Second, int add_to_Click_Damage, int amount_owned, int baseCost, int rate_Of_Increase_to_cost) {
+    public Automatic_Clickers(String name, int currency_per_Second, int add_to_Click_Damage, int amount_owned, int baseCost, int rate_Of_Increase_to_cost, int level,int currentCost) {
         Name = name;
         Currency_per_Second = currency_per_Second;
         Add_to_Click_Damage = add_to_Click_Damage;
         Amount_owned = amount_owned;
         BaseCost = baseCost;
         Rate_Of_Increase_to_cost = rate_Of_Increase_to_cost;
+        Level = level;
+        CurrentCost = currentCost;
     }
 
     public String getName() {
@@ -63,5 +67,21 @@ public class Automatic_Clickers {
 
     public void setRate_Of_Increase_to_cost(int rate_Of_Increase_to_cost) {
         Rate_Of_Increase_to_cost = rate_Of_Increase_to_cost;
+    }
+
+    public int getLevel() {
+        return Level;
+    }
+
+    public void setLevel(int level) {
+        Level = level;
+    }
+
+    public int getCurrentCost() {
+        return CurrentCost;
+    }
+
+    public void setCurrentCost(int currentCost) {
+        CurrentCost = currentCost;
     }
 }
