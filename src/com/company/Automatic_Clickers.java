@@ -1,5 +1,7 @@
 package com.company;
 
+import static java.lang.Math.round;
+
 public class Automatic_Clickers {
     public String Name;
     public int Currency_per_Second;
@@ -83,5 +85,9 @@ public class Automatic_Clickers {
 
     public void setCurrentCost(int currentCost) {
         CurrentCost = currentCost;
+    }
+
+    public void updateCost(){
+        setCurrentCost(round(getBaseCost()+((getBaseCost()*getRate_Of_Increase_to_cost())^getAmount_owned()))-1);
     }
 }

@@ -44,4 +44,8 @@ public class playerStats {
     public void setObjectOwned(ArrayList<Integer> objectOwned) {
         ObjectOwned = objectOwned;
     }
+
+
+
+
 }
