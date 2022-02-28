@@ -88,6 +88,6 @@ public class Automatic_Clickers {
     }
 
     public void updateCost(){
-        setCurrentCost(round(getBaseCost()+((getBaseCost()*getRate_Of_Increase_to_cost())^getAmount_owned()))-1);
+        setCurrentCost(round(getBaseCost()*getRate_Of_Increase_to_cost()^getAmount_owned()));
     }
 }
