@@ -80,5 +80,17 @@ public class gameObjects {
 
 
     }
+    //list of amount of automatic clickers owned
+    public static ArrayList<Integer> AmountOfAutomaticClickers(ArrayList<Automatic_Clickers> CurrentObjects){
+        ArrayList<Integer> AmountOwned = new ArrayList<>();
+        for (int i = 0; i < CurrentObjects.size(); i++) {
+            int Amount = CurrentObjects.get(i).getAmount_owned();
+            AmountOwned.add(Amount);
+        }
+        return AmountOwned;
+
+
+
+    }
 
 }
