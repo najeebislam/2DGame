@@ -2,7 +2,7 @@ package com.company;
 
 import com.company.playerStats;
 import com.company.Automatic_Clickers;
-
+import javafx.util.Pair;
 
 import java.util.ArrayList;
 
@@ -89,7 +89,36 @@ public class gameObjects {
         }
         return AmountOwned;
 
+    }
 
+    // buy item
+    public static Pair<ArrayList<Automatic_Clickers>, playerStats> BuyItem (ArrayList<Automatic_Clickers> AutomaticClickersList, String ItemBoughtName,playerStats player){
+        for (int i = 0; i < AutomaticClickersList.size(); i++) {
+            if (AutomaticClickersList.get(i).getName().equals(ItemBoughtName)){
+                if (AutomaticClickersList.get(i).getCurrentCost() <= player.getCurrency()){
+                    // inrements amount owned
+                    AutomaticClickersList.get(i).setAmount_owned(AutomaticClickersList.get(i).getAmount_owned()+1);
+                    // removes cost form curentcy
+                    player.setCurrency(player.getCurrency()-AutomaticClickersList.get(i).getCurrentCost());
+                    //increses price of object
+                    AutomaticClickersList.get(i).updateCost();
+
+                    // updates the click power and CPS
+                    player.setTotal_Currency_per_second(amountGainPerSecond(AutomaticClickersList));
+                    player.setClick_Power(amountGainOnCLick(AutomaticClickersList));
+                    break;
+
+                }
+
+
+            }
+        }
+        return new Pair <ArrayList<Automatic_Clickers>, playerStats>(AutomaticClickersList,player);
+        /* no return use the code bellow
+        Pair <ArrayList<Automatic_Clickers>, playerStats> p =BuyItem()
+        AutomaticClickersList = p.getKey();
+        player = p.getVlaue()
+         */
 
     }
 
