@@ -8,12 +8,30 @@ import com.company.gameObjects.*;
 import com.company.playerStats.*;
 import com.company.Automatic_Clickers.*;
 
+import java.util.Date;
+import java.util.Timer;
+import java.util.TimerTask;
+
+
 import static com.company.gameObjects.*;
 
 
 public class Main {
 
+
     public static void main(String[] args) {
+        // creates timer task
+        Timer t = new Timer();
+        TimerTask tt = new TimerTask() {
+            @Override
+            public void run() {
+                System.out.println("Task Timer on Fixed Rate");
+            };
+        };
+        t.scheduleAtFixedRate(tt,new Date(),1000);
+
+
+
         ArrayList<Integer> AutomaticClickersOwned = new ArrayList<>();
         ArrayList<Automatic_Clickers> AutomaticClickersList = new ArrayList<>();
         playerStats player = new playerStats(0,0,0,AutomaticClickersOwned);
@@ -21,6 +39,8 @@ public class Main {
         ArrayList<Automatic_Clickers> AutomaticClickerArray= CreateAutomaticClickers();
         AutomaticClickersOwned = AmountOfAutomaticClickers(AutomaticClickerArray);
         player = CreatePlayerObject(AutomaticClickersOwned);
+
+
 
 
 
