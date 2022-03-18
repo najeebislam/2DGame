@@ -21,6 +21,7 @@ public class Main {
 
     public static void main(String[] args) {
         // creates timer task
+        /*
         Timer t = new Timer();
         TimerTask tt = new TimerTask() {
             @Override
@@ -30,15 +31,19 @@ public class Main {
         };
         t.scheduleAtFixedRate(tt,new Date(),1000);
 
+         */
+
 
 
         ArrayList<Integer> AutomaticClickersOwned = new ArrayList<>();
         ArrayList<Automatic_Clickers> AutomaticClickersList = new ArrayList<>();
-        playerStats player = new playerStats(0,0,0,AutomaticClickersOwned);
+        playerStats player = new playerStats(0,0,0,AutomaticClickersOwned,1);
 
         ArrayList<Automatic_Clickers> AutomaticClickerArray= CreateAutomaticClickers();
         AutomaticClickersOwned = AmountOfAutomaticClickers(AutomaticClickerArray);
         player = CreatePlayerObject(AutomaticClickersOwned);
+        System.out.println(player.toString());
+
 
 
 
