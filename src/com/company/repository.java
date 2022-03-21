@@ -41,5 +41,31 @@ public class repository {
             System.out.println("Error in the repository class: " + e);
         }
     }
+    public static playerStats getPlayer (playerStats player){
+        try {
+            String sql = "SELECT players.* FROM players where ID= '" + player.getID() + "'";
+            Connection con = getConnection();
+            ResultSet rs = executeSQL.executeQuery(con, sql);
+            player.setCurrency(rs.getLong("players_curenncy"));
+            ArrayList<Integer> objectsOwned = new ArrayList<>();
+            String temp = rs.getString("players_itemOwned");
+            for (int i = 0; i < temp.length(); i++) {
+                String number = "";
+                while(!temp.substring(i).equals(",")){
+                    number= number + temp.substring(i);
+                }
+                objectsOwned.add(Integer.parseInt(number));
+            }
+            player.setObjectOwned(objectsOwned);
+
+            rs.close();
+            con.close();
+        } catch (Exception e) {
+            System.out.println("Error in the repository class: " + e);
+
+        }
+        return player;
+
+    }
 
 }
