@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public class gameObjects {
     // interlile the player
     public static playerStats CreatePlayerObject(ArrayList<Integer>amount) {
-        playerStats Player = new playerStats(0, 1, 0, amount);
+        playerStats Player = new playerStats(0, 1, 0, amount,1);
         return Player;
     }
     // creats a list of the objects levels
